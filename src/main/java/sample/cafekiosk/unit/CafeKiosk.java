@@ -48,16 +48,22 @@ public class CafeKiosk {
 	}
 
 	// 총 주문 가격 계산 메서드
-	public int calculateTotalPrice() {
-		int totalPrice = 0;
-		for (Beverage beverage : beverages) {
-			totalPrice += beverage.getPrice();
-		}
+	// public int calculateTotalPrice() {
+	// 	int totalPrice = 0;
+	// 	for (Beverage beverage : beverages) {
+	// 		totalPrice += beverage.getPrice();
+	// 	}
+	//
+	// 	return totalPrice;
 
-		return totalPrice;
+	// }
+
+	public int calculateTotalPrice() {
+		return beverages.stream().mapToInt(Beverage::getPrice).sum();
 	}
 
 	// 주문 목록 생성
+
 	public Order createOrder() {
 		// 현재 날짜와 시간
 		LocalDateTime currentDateTime = LocalDateTime.now();
@@ -69,9 +75,9 @@ public class CafeKiosk {
 		}
 		return new Order(LocalDateTime.now(), beverages);
 	}
-
 	// 주문 목록 생성
 	// 주문 시간을 파라미터로 받도록 수정
+
 	public Order createOrder(LocalDateTime currentDateTime) {
 
 		// 현재 시간만 뽑기
@@ -82,5 +88,4 @@ public class CafeKiosk {
 		}
 		return new Order(LocalDateTime.now(), beverages);
 	}
-
 }
