@@ -24,6 +24,7 @@ public class CafeKioskRunner {
 		int totalPrice = cafeKiosk.calculateTotalPrice();
 		System.out.println("총 주문가격 : " + totalPrice);
 
+		// 주문 생성
 		Order order = cafeKiosk.createOrder(LocalDateTime.now());
 	}
 }

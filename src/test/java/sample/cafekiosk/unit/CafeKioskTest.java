@@ -7,7 +7,6 @@ import java.time.LocalDateTime;
 import org.junit.jupiter.api.Test;
 
 import sample.cafekiosk.unit.beverage.Americano;
-import sample.cafekiosk.unit.beverage.Beverage;
 import sample.cafekiosk.unit.beverage.Latte;
 import sample.cafekiosk.unit.order.Order;
 
@@ -34,7 +33,7 @@ class CafeKioskTest {
 
 	// 음료 여러 잔을 한 번에 담는 기능 테스트
 	@Test
-	void addServeralBeverages() {
+	void addSeveralBeverages() {
 		CafeKiosk cafeKiosk = new CafeKiosk();
 		Americano americano = new Americano();
 
@@ -56,7 +55,7 @@ class CafeKioskTest {
 		assertThatThrownBy(() -> cafeKiosk.add(americano, 0))
 			.isInstanceOf(IllegalArgumentException.class)
 			.hasMessage("음료는 한 잔 이상 주문하실 수 있습니다.");
-
+			// 어떤 상황을 던지고, 어떤 예외가 발생할 것인지 예외 클래스를 넣어주고, 어떤 메시지를 던지는지 확인 가능
 	}
 
 	// 음료 한 잔 삭제하는 테스트

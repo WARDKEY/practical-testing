@@ -13,6 +13,7 @@ import sample.cafekiosk.unit.order.Order;
 @Getter
 public class CafeKiosk {
 
+	// 시간에 대한 상수값 생성
 	private static final LocalTime SHOP_OPEN_TIME = LocalTime.of(10, 0);
 	private static final LocalTime SHOP_CLOSE_TIME = LocalTime.of(22, 0);
 
@@ -63,9 +64,8 @@ public class CafeKiosk {
 	}
 
 	// 주문 목록 생성
-
 	public Order createOrder() {
-		// 현재 날짜와 시간
+		// 현재 날짜와 시간(실행할 때마다 변경됨)
 		LocalDateTime currentDateTime = LocalDateTime.now();
 		// 현재 시간만 뽑기
 		LocalTime currentTime = currentDateTime.toLocalTime();
@@ -75,9 +75,9 @@ public class CafeKiosk {
 		}
 		return new Order(LocalDateTime.now(), beverages);
 	}
-	// 주문 목록 생성
-	// 주문 시간을 파라미터로 받도록 수정
 
+	// 주문 목록 생성
+	// 주문 시간을 파라미터로 받도록 수정(위에는 실행될 때마다 시간이 변경되었기 때문)
 	public Order createOrder(LocalDateTime currentDateTime) {
 
 		// 현재 시간만 뽑기
