@@ -59,6 +59,7 @@ public class CafeKiosk {
 
 	// }
 
+	// 총 주문 가격 계산 TDD로 구현
 	public int calculateTotalPrice() {
 		return beverages.stream().mapToInt(Beverage::getPrice).sum();
 	}

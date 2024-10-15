@@ -86,6 +86,7 @@ class CafeKioskTest {
 
 	}
 
+	// TDD 방식으로 설계
 	@Test
 	void calculateTotalPrice() {
 		CafeKiosk cafeKiosk = new CafeKiosk();
