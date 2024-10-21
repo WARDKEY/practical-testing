@@ -4,6 +4,7 @@ import static org.assertj.core.api.Assertions.*;
 
 import java.time.LocalDateTime;
 
+import org.hibernate.query.sqm.mutation.internal.cte.CteInsertStrategy;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -89,8 +90,10 @@ class CafeKioskTest {
 	}
 
 	// TDD 방식으로 설계
+	@DisplayName("주문 목록에 담긴 상품들의 총 금액을 계산할 수 있다.")
 	@Test
 	void calculateTotalPrice() {
+		// given
 		CafeKiosk cafeKiosk = new CafeKiosk();
 		Americano americano = new Americano();
 		Latte latte = new Latte();
@@ -98,8 +101,10 @@ class CafeKioskTest {
 		cafeKiosk.add(latte);
 		cafeKiosk.add(americano);
 
+		// when
 		int totalPrice = cafeKiosk.calculateTotalPrice();
 
+		// then
 		assertThat(totalPrice).isEqualTo(8500);
 	}
 
